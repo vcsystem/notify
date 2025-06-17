@@ -8,10 +8,14 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 
-@RequiredArgsConstructor
 public sealed abstract class VCSWebhookService permits GitlabWebhookService {
     private final ObjectMapper objectMapper;
     private final RabbitProducer rabbitProducer;
+
+    protected VCSWebhookService(ObjectMapper objectMapper, RabbitProducer rabbitProducer) {
+        this.objectMapper = objectMapper;
+        this.rabbitProducer = rabbitProducer;
+    }
 
     public void handleUpdate(String updateJson, String eventHeader) {
         switch (getEventType(eventHeader)) {
