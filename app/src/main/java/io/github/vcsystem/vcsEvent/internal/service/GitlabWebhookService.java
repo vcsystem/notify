@@ -10,14 +10,15 @@ import io.github.vcsystem.vcsEvent.internal.model.events.comment.CommentEvent;
 import io.github.vcsystem.vcsEvent.internal.model.events.issue.IssueEvent;
 import io.github.vcsystem.vcsEvent.internal.model.events.job.JobEvent;
 import io.github.vcsystem.vcsEvent.internal.model.events.pipeline.PipelineEvent;
+import io.github.vcsystem.vcsEvent.internal.producer.RabbitProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
 public class GitlabWebhookService extends VCSWebhookService {
-    public GitlabWebhookService(ObjectMapper objectMapper) {
-        super(objectMapper);
+    public GitlabWebhookService(ObjectMapper objectMapper, RabbitProducer rabbitProducer) {
+        super(objectMapper, rabbitProducer);
     }
 
     @Override

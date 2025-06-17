@@ -3,6 +3,7 @@ package io.github.vcsystem.vcsEvent.internal.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.vcsystem.vcsEvent.internal.enums.EventType;
+import io.github.vcsystem.vcsEvent.internal.producer.RabbitProducer;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
@@ -10,6 +11,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public abstract class VCSWebhookService {
     private final ObjectMapper objectMapper;
+    private final RabbitProducer rabbitProducer;
 
     public void handleUpdate(String updateJson, String eventHeader) {
         switch (getEventType(eventHeader)) {
@@ -29,6 +31,12 @@ public abstract class VCSWebhookService {
             default -> {
             }
         }
+        // the switch statement above will return a constructed JSON object
+        // it is a standard communication model
+        // and serves to exchange with other services
+        // the model will be used instead of the test message below
+        // TODO remove test message and implement a model described above
+        rabbitProducer.sendEventToRabbitMQ("This is vcs event message");
     }
 
     protected abstract void handlePushEvent(String updateJson);
