@@ -1,0 +1,78 @@
+{
+    "object_kind": "push",
+    "event_name": "push",
+    "before": "b33513ac6cd16d9da5262553e1a5758e42230a8c",
+    "after": "4a15f277d618b63d84ddb937eae48cf1028d55d3",
+    "ref": "refs/heads/main",
+    "checkout_sha": "4a15f277d618b63d84ddb937eae48cf1028d55d3",
+    "message": null,
+    "user_id": 7893238,
+    "user_name": "User Name",
+    "user_username": "user_username",
+    "user_avatar": "https://secure.gravatar.com/avatar/placeholder?s=80&d=identicon",
+    "project_id": 45994672,
+    "project": {
+        "id": 45994672,
+        "name": "Git Notify",
+        "description": null,
+        "web_url": "https://gitlab.com/user_username/git-notify",
+        "avatar_url": null,
+        "git_ssh_url": "git@gitlab.com:user_username/git-notify.git",
+        "git_http_url": "https://gitlab.com/user_username/git-notify.git",
+        "namespace": "User Name",
+        "visibility_level": 0,
+        "path_with_namespace": "user_username/git-notify",
+        "default_branch": "main",
+        "ci_config_path": "",
+        "homepage": "https://gitlab.com/user_username/git-notify",
+        "url": "git@gitlab.com:user_username/git-notify.git",
+        "ssh_url": "git@gitlab.com:user_username/git-notify.git",
+        "http_url": "https://gitlab.com/user_username/git-notify.git"
+    },
+    "commits": [
+        {
+            "id": "4a15f277d618b63d84ddb937eae48cf1028d55d3",
+            "message": "initial commit\n",
+            "title": "initial commit",
+            "timestamp": "2023-05-13T23:17:05+05:00",
+            "url": "https://gitlab.com/user_username/git-notify/-/commit/4a15f277d618b63d84ddb937eae48cf1028d55d3",
+            "author": {
+                "name": "User Name"
+            },
+            "added": [
+                ".gitignore",
+                "notify-app/pom.xml",
+                "notify-app/src/main/java/com/edatasite/notify/app/NotifyApplication.java",
+                "pom.xml"
+            ],
+            "modified": [],
+            "removed": []
+        },
+        {
+            "id": "b33513ac6cd16d9da5262553e1a5758e42230a8c",
+            "message": "Initial commit",
+            "title": "Initial commit",
+            "timestamp": "2023-05-13T18:02:21+00:00",
+            "url": "https://gitlab.com/user_username/git-notify/-/commit/b33513ac6cd16d9da5262553e1a5758e42230a8c",
+            "author": {
+                "name": "User Name"
+            },
+            "added": [
+                "README.md"
+            ],
+            "modified": [],
+            "removed": []
+        }
+    ],
+    "total_commits_count": 2,
+    "push_options": {},
+    "repository": {
+        "name": "Git Notify",
+        "url": "git@gitlab.com:user_username/git-notify.git",
+        "description": null,
+        "homepage": "https://gitlab.com/user_username/git-notify",
+        "git_http_url": "https://gitlab.com/user_username/git-notify.git",
+        "git_ssh_url": "git@gitlab.com:user_username/git-notify.git",
+        "visibility_level": 0
+    }
+}

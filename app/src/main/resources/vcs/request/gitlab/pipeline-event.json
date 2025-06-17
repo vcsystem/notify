@@ -1,0 +1,96 @@
+{
+    "object_kind": "pipeline",
+    "object_attributes": {
+        "id": 901249970,
+        "iid": 236,
+        "name": null,
+        "ref": "main",
+        "tag": false,
+        "sha": "73631d684561e83a184c48dc120ad85f4df7fd12",
+        "before_sha": "5ac69ba74e287fe297f2cb9dca2cbacf66931d35",
+        "source": "push",
+        "status": "success",
+        "detailed_status": "passed",
+        "stages": [
+            "test"
+        ],
+        "created_at": "2023-06-15T13:36:55.213Z",
+        "finished_at": "2023-06-17T09:50:13.226Z",
+        "duration": 158,
+        "queued_duration": 26,
+        "variables": [],
+        "url": "https://gitlab.com/REDACTED/REDACTED_PROJECT/-/pipelines/901249970"
+    },
+    "merge_request": null,
+    "user": {
+        "id": 7893238,
+        "name": "REDACTED_USER",
+        "username": "REDACTED_USERNAME",
+        "avatar_url": "https://secure.gravatar.com/avatar/edee74e565998bb55e3b86af0191a330?s=80&d=identicon",
+        "email": "[REDACTED]"
+    },
+    "project": {
+        "id": 35628881,
+        "name": "REDACTED_PROJECT",
+        "description": "",
+        "web_url": "https://gitlab.com/REDACTED/REDACTED_PROJECT",
+        "avatar_url": null,
+        "git_ssh_url": "git@gitlab.com:REDACTED/REDACTED_PROJECT.git",
+        "git_http_url": "https://gitlab.com/REDACTED/REDACTED_PROJECT.git",
+        "namespace": "REDACTED_NAMESPACE",
+        "visibility_level": 0,
+        "path_with_namespace": "REDACTED/REDACTED_PROJECT",
+        "default_branch": "main",
+        "ci_config_path": ""
+    },
+    "commit": {
+        "id": "73631d684561e83a184c48dc120ad85f4df7fd12",
+        "message": "Merge branch 'sizeCode' into main\n",
+        "title": "Merge branch 'sizeCode' into main",
+        "timestamp": "2023-06-15T18:36:36+05:00",
+        "url": "https://gitlab.com/REDACTED/REDACTED_PROJECT/-/commit/73631d684561e83a184c48dc120ad85f4df7fd12",
+        "author": {
+            "name": "REDACTED_USER",
+            "email": "[REDACTED]"
+        }
+    },
+    "builds": [
+        {
+            "id": 4492345306,
+            "stage": "test",
+            "name": "build",
+            "status": "success",
+            "created_at": "2023-06-17T09:46:42.318Z",
+            "started_at": "2023-06-17T09:47:35.155Z",
+            "finished_at": "2023-06-17T09:50:13.179Z",
+            "duration": 158.024176,
+            "queued_duration": 52.620574,
+            "failure_reason": null,
+            "when": "on_success",
+            "manual": false,
+            "allow_failure": false,
+            "user": {
+                "id": 12151471,
+                "name": "REDACTED_USER",
+                "username": "REDACTED_USERNAME",
+                "avatar_url": "https://secure.gravatar.com/avatar/f841afc9765e8837a07abbbb8f46156b?s=80&d=identicon",
+                "email": "[REDACTED]"
+            },
+            "runner": {
+                "id": 17716912,
+                "description": "REDACTED_RUNNER",
+                "runner_type": "project_type",
+                "active": true,
+                "is_shared": false,
+                "tags": [
+                    "f-it"
+                ]
+            },
+            "artifacts_file": {
+                "filename": null,
+                "size": null
+            },
+            "environment": null
+        }
+    ]
+}
