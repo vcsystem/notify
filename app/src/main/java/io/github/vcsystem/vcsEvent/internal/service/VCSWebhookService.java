@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-public abstract class VCSWebhookService {
+public sealed abstract class VCSWebhookService permits GitlabWebhookService {
     private final ObjectMapper objectMapper;
     private final RabbitProducer rabbitProducer;
 

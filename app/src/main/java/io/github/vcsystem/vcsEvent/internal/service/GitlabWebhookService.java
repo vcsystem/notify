@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class GitlabWebhookService extends VCSWebhookService {
+public final class GitlabWebhookService extends VCSWebhookService {
     public GitlabWebhookService(ObjectMapper objectMapper, RabbitProducer rabbitProducer) {
         super(objectMapper, rabbitProducer);
     }
