@@ -2,9 +2,9 @@ package io.github.vcsystem.vcsEvent.internal.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.vcsystem.common.event.VCEventTriggered;
 import io.github.vcsystem.vcsEvent.internal.enums.EventType;
 import io.github.vcsystem.vcsEvent.internal.producer.RabbitProducer;
-import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 
@@ -18,7 +18,8 @@ public sealed abstract class VCSWebhookService permits GitlabWebhookService {
     }
 
     public void handleUpdate(String updateJson, String eventHeader) {
-        switch (getEventType(eventHeader)) {
+        EventType eventType = getEventType(eventHeader);
+        VCEventTriggered eventTriggered = switch (eventType) {
             case PUSH -> handlePushEvent(updateJson);
             case TAG_PUSH -> handleTagPush(updateJson);
             case ISSUE -> handleIssue(updateJson);
@@ -32,42 +33,40 @@ public sealed abstract class VCSWebhookService permits GitlabWebhookService {
             case SUBGROUP -> handleSubgroup(updateJson);
             case FEATURE_FLAG -> handleFeatureFlag(updateJson);
             case RELEASE -> handleRelease(updateJson);
-            default -> {
-            }
-        }
+            default -> VCEventTriggered.builder().eventName(eventType).build();
+        };
         // the switch statement above will return a constructed JSON object
         // it is a standard communication model
         // and serves to exchange with other services
-        // the model will be used instead of the test message below
-        // TODO remove test message and implement a model described above
-        rabbitProducer.sendEventToRabbitMQ("This is vcs event message");
+        eventTriggered.setEventName(eventType);
+        rabbitProducer.sendEventToRabbitMQ(eventTriggered);
     }
 
-    protected abstract void handlePushEvent(String updateJson);
+    protected abstract VCEventTriggered handlePushEvent(String updateJson);
 
-    protected abstract void handleTagPush(String updateJson);
+    protected abstract VCEventTriggered handleTagPush(String updateJson);
 
-    protected abstract void handleIssue(String updateJson);
+    protected abstract VCEventTriggered handleIssue(String updateJson);
 
-    protected abstract void handleNote(String updateJson);
+    protected abstract VCEventTriggered handleNote(String updateJson);
 
-    protected abstract void handleMergeRequest(String updateJson);
+    protected abstract VCEventTriggered handleMergeRequest(String updateJson);
 
-    protected abstract void handleWikiPage(String updateJson);
+    protected abstract VCEventTriggered handleWikiPage(String updateJson);
 
-    protected abstract void handlePipeline(String updateJson);
+    protected abstract VCEventTriggered handlePipeline(String updateJson);
 
-    protected abstract void handleJob(String updateJson);
+    protected abstract VCEventTriggered handleJob(String updateJson);
 
-    protected abstract void handleDevelopment(String updateJson);
+    protected abstract VCEventTriggered handleDevelopment(String updateJson);
 
-    protected abstract void handleMember(String updateJson);
+    protected abstract VCEventTriggered handleMember(String updateJson);
 
-    protected abstract void handleSubgroup(String updateJson);
+    protected abstract VCEventTriggered handleSubgroup(String updateJson);
 
-    protected abstract void handleFeatureFlag(String updateJson);
+    protected abstract VCEventTriggered handleFeatureFlag(String updateJson);
 
-    protected abstract void handleRelease(String updateJson);
+    protected abstract VCEventTriggered handleRelease(String updateJson);
 
     protected abstract EventType getEventType(String eventHeader);
 

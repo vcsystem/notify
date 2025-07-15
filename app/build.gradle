@@ -20,6 +20,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.projectlombok:lombok:1.18.38')
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation("com.github.pengrad:java-telegram-bot-api:8.3.0")
     testImplementation 'org.springframework.amqp:spring-rabbit-test'
     annotationProcessor('org.projectlombok:lombok:1.18.38')
     testImplementation platform('org.junit:junit-bom:5.10.0')
